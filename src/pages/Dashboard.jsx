@@ -4,6 +4,7 @@ import { Header } from '../components/Header';
 import { SearchBar } from '../components/SearchBar';
 import { CardList } from '../components/CardList';
 import { ToastContainer } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 export function Dashboard() {
     const [cards, setCards] = useState([]);
@@ -12,6 +13,7 @@ export function Dashboard() {
     const [sortOrder, setSortOrder] = useState('newFirst');
     const [loading, setLoading] = useState(true);
     const [websites, setWebsites] = useState([]);
+    const navigate = useNavigate();
 
     const clearFilters = () => {
         setSearchText('');
@@ -30,7 +32,7 @@ export function Dashboard() {
                 localStorage.setItem('access_token', response.data.access_token);
             } catch (error) {
                 console.log(error);
-                window.location.href = '/login';
+                navigate('/login');
                 console.error('Error refreshing token:', error);
             }
         }

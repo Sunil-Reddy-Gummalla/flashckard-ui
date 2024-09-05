@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import { FaSignOutAlt, FaEllipsisV } from 'react-icons/fa';
 import { AddFlashCardPopup } from './popups/AddFlashCardPopup';
 import logo from '../assets/logo.png';
+import { useNavigate } from 'react-router-dom';
 
 export function Header({ fetchCards }) {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const navigate = useNavigate();
 
     const handleLogout = () => {
         localStorage.removeItem('access_token');
         localStorage.removeItem('refresh_token');
-        window.location.href = '/';
+        navigate('/login');
     };
 
     return (
