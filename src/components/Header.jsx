@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaSignOutAlt, FaEllipsisV } from 'react-icons/fa';
 import { AddFlashCardPopup } from './popups/AddFlashCardPopup';
+import logo from '../assets/logo.png';
 
 export function Header({ fetchCards }) {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -14,7 +15,7 @@ export function Header({ fetchCards }) {
 
     return (
         <header className="bg-blue-600 text-white p-3 flex items-center justify-between relative">
-            <img src="./src/assets/logo.png" alt='Logo' className='h-10 w-auto' />
+            <img src={logo} alt='Logo' className='h-10 w-auto' />
             <h1 className="text-xl flex-grow">Flashcard Generator</h1>
             
             <div className="hidden md:flex space-x-2">
